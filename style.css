@@ -20,6 +20,9 @@ body {
     padding: 20px;
 }
 main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     background-color: #fff;
     max-width: 800px;
     margin: auto;
@@ -27,14 +30,19 @@ main {
     box-shadow: 0 5px 10px 10px rgba(0, 0, 0, 0.05);
     overflow: hidden;
 }
-section {
+main div {
     padding: 35px;
 }
-section.light-blue {
+div.community {
+    grid-column: 1/-1;
+}
+div.light-blue {
+    grid-row: 2/3;
     background-color: hsl(179, 47%, 52%);
     color: white;
 }
-section.dark-blue {
+div.dark-blue {
+    grid-row: 2/3;
     background-color: var(--Cyan);
     color: white;
 }
@@ -61,12 +69,6 @@ p.faded span {
     color: white;
     margin-right: 10px;
 }
-.row {
-    display: flex;
-}
-.row > section {
-    flex: 1;
-}
 button {
     font-family: var(--ff);
     font-size: 1.3rem;
@@ -89,7 +91,9 @@ ul li {
     line-height: 28px;
 }
 @media (max-width: 600px) {
-    .row {
+    /* idk how to make responsive with grid */
+    main {
+        display: flex;
         flex-direction: column;
     }
 }
